@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="16" height="16" tilewidth="64" tileheight="32">
+ <tileset firstgid="1" name="iso-64x64-outside" tilewidth="64" tileheight="64">
+  <image source="../../../../IsoHill/bin/Nature/iso-64x64-outside.png" width="640" height="1024"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYmBgYBrFo3gUj0gMAAg8AgE=
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJwzZ2BgMKcQkwtGmn50tSNNPzbzaKUfW/qkNP0OdPjh0k8JBgDPyw/n
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="50" height="50" tilewidth="64" tileheight="32">
+ <tileset firstgid="1" name="iso-64x64-outside" tilewidth="64" tileheight="64">
+  <image source="../../../../IsoHill/bin/Nature/iso-64x64-outside.png" width="640" height="1024"/>
+ </tileset>
+ <layer name="ground" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztwwEJAAAMBKH7/qWXY6DgqqmqqqqqqqqqqurzBwHpCcU=
+  </data>
+ </layer>
+ <layer name="level1" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztmG1uwjAMhnuXHoIjVD0NIG7AJSb2Y9tRJ7RWWJbtvHYcSEdfyaKt6tQPTpyPwzAMh39iW9fO0ZdQjql1IJV6t3z0rkyOj6R2RnKN9meUYxSeTY7vSNJ8R8FK0jh4jFpbKIf0XsnXw1OTDyQWVDelTZTF4vDmluqyWK0kDimWUj5qOWp5sjh4e6iyOOi3Mzi84hzZOeGKcqDjO4PFw9FyTj8ND47zEK9xKEfLPctpsfNilqz5UVMkpprcrSzZejZHK/XIERk/PXJEpHFcAR9PHdDW9FnrM4SDM7XOxzHg0yMHqh9yLXFwBoRD+g8n5VrTkVhJ30JMEseVXHOVagOyT/Sun6m+hGdWvyqNdU2cQfp/o/sBK55If9d8aMxWXjx7NKSfoRyRGnKX1b8yc7KfX/3Jk6fImQmqHvOhrQusdQN/t/ZsTVJ0bJXWOhYHVe9n7FQ1c9pc8H2mNA6kFs7MXslkcZRY7n4zu8+Og+vCfi1/6Zxl7VufzDfCcROeIXsZ6wxJ4+CSxghaLxBpsVqmxUKFrhW850BaDY5wUJ5e5kGr/yA5Qequdb8+y5hraBzZHFxozNE9tiRao7zj4xWy4uAsku8WOFZpZ/Zb47B8d4767/K5tPQO2l5v5on1F5KCjqw=
+  </data>
+ </layer>
+ <layer name="level2" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1sEJwCAUREH7h6CHxHrtQBAXPoSZApZ33NYA9p7qAAAA4IpP/3+zOiDgqw4IeKsDAACCRmCjBzYAAODUArpRA/k=
+  </data>
+ </layer>
+ <layer name="level3" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1rENACAMBDF2pwOGZggifYTsCa68MaCPmQ4AAACeePr/nXRAgZ0OKLDSAQAAAAAATV1WjQKo
+  </data>
+ </layer>
+</map>
