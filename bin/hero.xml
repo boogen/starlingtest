@@ -1,30 +1,30 @@
 <TextureAtlas imagePath="hero.png">
-	<SubTexture name="hero_down_right_0" x="0" y="0" width="32" height="32" />
-	<SubTexture name="hero_down_right_1" x="32" y="0" width="32" height="32" />
-	<SubTexture name="hero_down_right_2" x="64" y="0" width="32" height="32" />
-	<SubTexture name="hero_down_right_3" x="96" y="0" width="32" height="32" />
-	<SubTexture name="hero_down_right_4" x="128" y="0" width="32" height="32" />
-	<SubTexture name="hero_down_right_5" x="160" y="0" width="32" height="32" />
+	<SubTexture name="hero_down_right_0" x="640" y="0" width="32" height="32" />
+	<SubTexture name="hero_down_right_1" x="672" y="0" width="32" height="32" />
+	<SubTexture name="hero_down_right_2" x="704" y="0" width="32" height="32" />
+	<SubTexture name="hero_down_right_3" x="736" y="0" width="32" height="32" />
+	<SubTexture name="hero_down_right_4" x="768" y="0" width="32" height="32" />
+	<SubTexture name="hero_down_right_5" x="800" y="0" width="32" height="32" />
 	
-	<SubTexture name="hero_down_left_0" x="0" y="32" width="32" height="32" />
-	<SubTexture name="hero_down_left_1" x="32" y="32" width="32" height="32" />
-	<SubTexture name="hero_down_left_2" x="64" y="32" width="32" height="32" />
-	<SubTexture name="hero_down_left_3" x="96" y="32" width="32" height="32" />
-	<SubTexture name="hero_down_left_4" x="128" y="32" width="32" height="32" />
-	<SubTexture name="hero_down_left_5" x="160" y="32" width="32" height="32" />
+	<SubTexture name="hero_down_left_0" x="640" y="32" width="32" height="32" />
+	<SubTexture name="hero_down_left_1" x="672" y="32" width="32" height="32" />
+	<SubTexture name="hero_down_left_2" x="704" y="32" width="32" height="32" />
+	<SubTexture name="hero_down_left_3" x="736" y="32" width="32" height="32" />
+	<SubTexture name="hero_down_left_4" x="768" y="32" width="32" height="32" />
+	<SubTexture name="hero_down_left_5" x="800" y="32" width="32" height="32" />
 	
-	<SubTexture name="hero_up_left_0" x="0" y="64" width="32" height="32" />
-	<SubTexture name="hero_up_left_1" x="32" y="64" width="32" height="32" />
-	<SubTexture name="hero_up_left_2" x="64" y="64" width="32" height="32" />
-	<SubTexture name="hero_up_left_3" x="96" y="64" width="32" height="32" />
-	<SubTexture name="hero_up_left_4" x="128" y="64" width="32" height="32" />
-	<SubTexture name="hero_up_left_5" x="160" y="64" width="32" height="32" />
+	<SubTexture name="hero_up_left_0" x="640" y="64" width="32" height="32" />
+	<SubTexture name="hero_up_left_1" x="672" y="64" width="32" height="32" />
+	<SubTexture name="hero_up_left_2" x="704" y="64" width="32" height="32" />
+	<SubTexture name="hero_up_left_3" x="736" y="64" width="32" height="32" />
+	<SubTexture name="hero_up_left_4" x="768" y="64" width="32" height="32" />
+	<SubTexture name="hero_up_left_5" x="800" y="64" width="32" height="32" />
 	
-	<SubTexture name="hero_up_right_0" x="0" y="96" width="32" height="32" />
-	<SubTexture name="hero_up_right_1" x="32" y="96" width="32" height="32" />
-	<SubTexture name="hero_up_right_2" x="64" y="96" width="32" height="32" />
-	<SubTexture name="hero_up_right_3" x="96" y="96" width="32" height="32" />
-	<SubTexture name="hero_up_right_4" x="128" y="96" width="32" height="32" />
-	<SubTexture name="hero_up_right_5" x="160" y="96" width="32" height="32" />
+	<SubTexture name="hero_up_right_0" x="640" y="96" width="32" height="32" />
+	<SubTexture name="hero_up_right_1" x="672" y="96" width="32" height="32" />
+	<SubTexture name="hero_up_right_2" x="704" y="96" width="32" height="32" />
+	<SubTexture name="hero_up_right_3" x="736" y="96" width="32" height="32" />
+	<SubTexture name="hero_up_right_4" x="768" y="96" width="32" height="32" />
+	<SubTexture name="hero_up_right_5" x="800" y="96" width="32" height="32" />
 	
 </TextureAtlas>

@@ -36,15 +36,27 @@ package {
 		[Embed(source="../bin/hero.xml", mimeType="application/octet-stream")]
 		public static const heroXml:Class;
 		 
-		// Embed the Atlas Texture:
-		[Embed(source="../bin/hero.png")]
-		public static const heroTexture:Class;
 		
 		[Embed(source = "../bin/iso-64x64-outside.png")]
 		public static const terrainTexture:Class;
 		
-		[Embed(source="../bin/smallmap3.tmx", mimeType="application/octet-stream")]
-		public static const mapXml:Class;
+		[Embed(source="../bin/bigmap.tmx", mimeType="application/octet-stream")]
+		public static const bigMap:Class;
+		
+		[Embed(source="../bin/smallmap.tmx", mimeType="application/octet-stream")]
+		public static const smallMap:Class;
+		
+		[Embed(source = "../bin/left.png")]
+		public static const leftClass:Class;
+		
+		[Embed(source = "../bin/right.png")]
+		public static const rightClass:Class;
+		
+		[Embed(source = "../bin/smallmap.png")]
+		public static const smallmapClass:Class;
+		
+		[Embed(source = "../bin/bigmap.png")]
+		public static const bigmapClass:Class;		
 		
 		private var terrainBitmap:Bitmap;
 		private var background:Sprite;
@@ -61,11 +73,12 @@ package {
 		
 		public function Game()
 		{
-
 			terrainBitmap = (new terrainTexture() as Bitmap);
 			
+			texture = Texture.fromBitmap(terrainBitmap);
+			
 			// create atlas
-			var texture:Texture = Texture.fromBitmap(new heroTexture());
+		
 			var xml:XML = XML(new heroXml());
 			heroAtlas = new TextureAtlas(texture, xml);
 			heroLayer = new Sprite();
@@ -74,20 +87,71 @@ package {
 		
 			collisionMap = new Vector.<Vector.<int>>();
 			
-			spawner = new Timer(100, 0);
+			spawner = new Timer(20, 0);
 			spawner.addEventListener(TimerEvent.TIMER, spawnHero);
 			
-	
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 		}
 		
 		
 		private function onAddedToStage(e:Object):void {
-			var xml:XML = XML(new mapXml());
-			var tmx:TMX = new TMX(xml);
+			Starling.current.showStats = true;
+			
+			var smallTexture:Texture = Texture.fromBitmap(new smallmapClass());
+			small = new Image(smallTexture);
+			small.x = stage.stageWidth / 2 - small.width - 10;
+			small.y = (stage.stageHeight - small.height) / 2;
+			small.addEventListener(TouchEvent.TOUCH, onSmallMap);
+			addChild(small);
+			
+			var bigTexture:Texture = Texture.fromBitmap(new bigmapClass());
+			big = new Image(bigTexture);
+			big.x = stage.stageWidth / 2 + 10;
+			big.y = (stage.stageHeight - big.height) / 2;
+			big.addEventListener(TouchEvent.TOUCH, onBigMap);
+			addChild(big);
 			
 			background = new Sprite();
+		}
+		
+		private function onSmallMap(e:TouchEvent):void {
+			var touch:Touch = e.getTouch(stage);
+			if (touch && touch.phase == TouchPhase.BEGAN) {
+				onMapSelected(XML(new smallMap()));
+			}
+		}
+		
+		private function onBigMap(e:TouchEvent):void 
+		{
+			var touch:Touch = e.getTouch(stage);
+			if (touch && touch.phase == TouchPhase.BEGAN) {
+				var leftTexture:Texture = Texture.fromBitmap(new leftClass());
+				var left:Image = new Image(leftTexture);
+				left.x = -1600;
+				background.addChild(left);
+				
+				var rightTexture:Texture = Texture.fromBitmap(new rightClass());
+				var right:Image = new Image(rightTexture);
+				background.addChild(right);				
+				
+				onMapSelected(XML(new bigMap()));
+			}
+		}
+		
+		private function onMapSelected(mapXml:XML):void 
+		{
+			small.removeEventListener(TouchEvent.TOUCH, onSmallMap);
+			small.parent.removeChild(small);
+			big.removeEventListener(TouchEvent.TOUCH, onBigMap);
+			big.parent.removeChild(big);			
+			
+			var xml:XML = XML(mapXml);
+			var tmx:TMX = new TMX(xml);
+			
+			
 			addChild(background);
+			
+
 			
 			makeFrames(tmx);
 			
@@ -100,20 +164,22 @@ package {
 			addChild(gui);
 			
 			var rect:Quad = new Quad(100, 70, 0);
+			rect.y = 35;
 			gui.addChild(rect);
 			
 			var name:TextField = new TextField(100, 20, "Starling", "Verdana", 12, 0xffffff);
 			name.hAlign = HAlign.LEFT;
+			name.y = 40;
 			gui.addChild(name);
 			
 			fps = new TextField(100, 20, "0 fps", "Verdana", 12, 0xffffff);
 			fps.hAlign = HAlign.LEFT;
-			fps.y = 20;
+			fps.y = 60;
 			gui.addChild(fps);
 			
 			heroText = new TextField(100, 20, "0 heroes", "Verdana", 12, 0xffffff);
 			heroText.hAlign = HAlign.LEFT;
-			heroText.y = 40;
+			heroText.y = 80;
 			gui.addChild(heroText);
 			
 			time = getTimer();
@@ -145,6 +211,9 @@ package {
 		private var startY:Number;
 		private var fps:TextField;
 		private var heroText:TextField;
+		private var big:Image;
+		private var small:Image;
+		private var texture:Texture;
 		
 		private function onTouch(e:TouchEvent):void 
 		{
@@ -201,20 +270,22 @@ package {
 			var row:int = Utils.getRow(hx, hy);
 			var col:int = Utils.getCol(hx, hy);					
 			
-			var hero:Hero = new Hero(heroAtlas);
+			if (col >= 0 && row >= 0 && col < collisionMap.length && row < collisionMap[col].length && collisionMap[col][row] == 0) {
+				var hero:Hero = new Hero(heroAtlas);
 
-			var r:int = -row + col;
-			var c:int = row + col;
-			
-			hero.x = r * 32 - hero.width / 2;
-			hero.y = c * 16 + 5 - 16;
-			
-			layers[1].addChild(hero);
-			hero.addEventListener("WALKED", onHeroWalked);
-			walkHero(hero);
-			
-			heroCounter++;
-			heroText.text = heroCounter.toString() + " heroes";
+				var r:int = -row + col;
+				var c:int = row + col;
+				
+				hero.x = r * 32 - hero.width / 2;
+				hero.y = c * 16 + 5 - 16;
+				
+				layers[1].addChild(hero);
+				hero.addEventListener("WALKED", onHeroWalked);
+				walkHero(hero);
+				
+				heroCounter++;
+				heroText.text = heroCounter.toString() + " heroes";
+			}
 		}
 		
 		private function onHeroWalked(e:Object):void 
@@ -313,7 +384,7 @@ package {
 				}
 			}
 			
-			var texture:Texture = Texture.fromBitmap(terrainBitmap);
+			
 			var atlas:TextureAtlas = new TextureAtlas(texture, xml);
 			
 
@@ -376,6 +447,9 @@ package {
 				background.addChild(layer);
 			
 			}
+			
+			background.x = stage.stageWidth / 2;
+			background.y = (stage.stageHeight - tmx.height * 1.4 * 16) / 2;			
 
 		}
 	

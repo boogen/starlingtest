@@ -4,13 +4,13 @@
   <output>
     <movie outputType="Application" />
     <movie input="" />
-    <movie path="bin\isometricStarling.swf" />
+    <movie path="bin\IsometricStarling.swf" />
     <movie fps="30" />
-    <movie width="800" />
-    <movie height="600" />
-    <movie version="11" />
+    <movie width="1024" />
+    <movie height="768" />
+    <movie version="3" />
     <movie minorVersion="7" />
-    <movie platform="Flash Player" />
+    <movie platform="AIR Mobile" />
     <movie background="#FFFFFF" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
@@ -85,7 +85,8 @@
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />
-    <option testMovie="Default" />
+    <option testMovie="Custom" />
+    <option testMovieCommand="Run.bat" />
   </options>
   <!-- Plugin storage -->
   <storage />

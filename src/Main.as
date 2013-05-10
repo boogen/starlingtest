@@ -1,16 +1,20 @@
 package 
 {
 	import flash.display.Sprite;
+	import flash.display.StageAlign;
+	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	import starling.core.Starling;
 	import starling.textures.TextureAtlas;
 	
-	[SWF(width="1024", height="768")]
+
 	public class Main extends Sprite 
 	{
 		
 		public function Main():void 
 		{
+			stage.scaleMode = StageScaleMode.NO_SCALE;
+			stage.align = StageAlign.TOP_LEFT;			
 			if (stage) init();
 			else addEventListener(Event.ADDED_TO_STAGE, init);
 		}
